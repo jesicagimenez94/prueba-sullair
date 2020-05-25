@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Sullair Home</title>
+
+    <script src="JS/table.js"></script>
+  
+
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito|Open+Sans&display=swap" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <header>
+
+
+      <div class="nomApi">
+        <h4>Sullair Home</h4>
+      </div>
+
+     <!--Menu NavBar responsive -->
+    <nav>
+      <div class="conteneur-nav">
+      <label for="mobile">Afficher / Cacher le menu</label>
+      <input type="checkbox" id="mobile" role="button">
+        <ul>
+          <li class="deroulant"><a href="#">Alquileres</a>
+            <ul class="sous">
+              <li><a href="#">Negocio</a></li>
+              <li><a href="#">Productos</a></li>
+              <li><a href="#">Sucursales</a></li>
+              <li><a href="#">Clientes</a></li>
+              <li><a href="#">Mercado</a></li>
+              <li><a href="#">Importaciones</a></li>
+            </ul>
+          </li>
+          <li class="deroulant"><a href="#">Ventas</a>
+            <ul class="sous">
+              <li><a href="#">Negocio</a></li>
+              <li><a href="#">Productos</a></li>
+              <li><a href="#">Sucursales</a></li>
+              <li><a href="#">Clientes</a></li>
+              <li><a href="#">Mercado</a></li>
+              <li><a href="#">Importaciones</a></li>
+            </ul>
+          </li>
+          <li class="deroulant"><a href="#">Posventa</a>
+           <ul class="sous">
+              <li><a href="#">Negocio</a></li>
+              <li><a href="#">Productos</a></li>
+              <li><a href="#">Sucursales</a></li>
+              <li><a href="#">Clientes</a></li>
+              <li><a href="#">Mercado</a></li>
+              <li><a href="#">Importaciones</a></li>
+            </ul>
+          </li>
+          <li class="deroulant"><a href="#">Repuestos</a>
+            <ul class="sous">
+              <li><a href="#">Negocio</a></li>
+              <li><a href="#">Productos</a></li>
+              <li><a href="#">Sucursales</a></li>
+              <li><a href="#">Clientes</a></li>
+              <li><a href="#">Mercado</a></li>
+              <li><a href="#">Importaciones</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+  </header>
+
+      <main>
+          <img src="sullair2.jpg" height="500" width="1365" style="text-align: center">
+      </main>
+
+ <script type="text/x-template" id="grid-template">
+    <table>
+      <thead>
+        <tr>
+          <th v-for="key in columns"
+            @click="sortBy(key)"
+            :class="{ active: sortKey == key }">
+            {{ key | capitalize }}
+            <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="entry in filteredHeroes">
+          <td v-for="key in columns">
+            {{entry[key]}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+
+
+  <div id="demo">
+    <form id="search">
+      Search <input name="query" v-model="searchQuery">
+    </form>
+    <demo-grid
+      :heroes="gridData"
+      :columns="gridColumns"
+      :filter-key="searchQuery">
+    </demo-grid>
+  </div>
+
+
+  </body>
+
+  </html>
